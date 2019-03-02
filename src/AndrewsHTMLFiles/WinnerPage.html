@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<title>Trivia Game</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border: 2px solid #3456af;
+        }
+
+        /* Set a style for the submit button */
+        .btn {
+            background-color: #3456af;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .btn:hover {
+            opacity: 1;
+        }
+
+        #title{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 32px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        #username{
+            font-family: Courier New;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        #round{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        #question{
+            background: lightgrey;
+            width: 300px;
+            border: 10px solid #3456AF;
+            padding: 100px;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        #playerCount{
+            background: lightgrey;
+            width: 150px;
+            border: 5px solid #3456af;
+            padding: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+
+        #timer {
+            width: 520px;
+            background-color: #3456af;
+            margin: auto;
+        }
+
+        #timerBar {
+            width: 1%;
+            height: 15px;
+            background-color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 15px;
+        }
+
+    </style>
+</head>
+
+
+<body onload="move()">
+
+<div id = "title", align="center">Trivia Game</div>
+<div id = "username", align="center"><i>username</i></div>
+<div id = "round", align="center">Question 19</div>
+
+
+<div id = "question">Finish the Lyric:<br><br>"She said 'Do you love me?', I told her only ______" - Drake, "God's Plan"</div>
+
+
+<div id="timer">
+    <div id="timerBar">20</div>
+</div>
+
+
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+    <div class="input-container">
+        <input class="input-field" type="text" placeholder="Answer" name="answer">
+    </div>
+
+    <button type="submit" class="btn">Submit</button>
+</form>
+
+<div id = "playerCount">Players Remaining: 1</div>
+
+</body>
+
+<script>
+    function move() {
+        var elem = document.getElementById("timerBar");
+        var elem2 =document.getElementById("question");
+        var width = 1;
+        var id = setInterval(frame, 0);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id)
+            }
+            else {
+                width++;
+                elem.style.width = width + '%';
+                elem.innerHTML = Math.trunc(20 - width * .2);
+                if (elem.innerHTML == 0){
+                    elem2.innerHTML = "Winner!!!"
+                    elem2.style.background = "linear-gradient(to right, red, orange, yellow, green, blue)"
+                    elem2.style.fontSize = "48px"
+                }
+            }
+        }
+    }
+</script>
+
+
+</html>

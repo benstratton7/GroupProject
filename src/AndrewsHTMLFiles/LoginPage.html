@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<title> Trivia Game - Login </title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;
+            background-color: aliceblue}
+        * {box-sizing: border-box;}
+
+        #input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        #icon {
+            padding: 10px;
+            background: #3456af;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        #input {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+        #input:focus {
+            border: 2px solid #3456af;
+        }
+
+        /* Set a style for the submit button */
+        #btn {
+            background-color: #3456af;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        #btn:hover {
+            opacity: 1;
+        }
+
+        #title{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 32px;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div id = "title", align = "center">Trivia Game</div>
+
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+    <div id="input-container">
+        <i id="fa fa-user icon"></i>
+        <input id="input" type="text" placeholder="Username" name="usrnm">
+    </div>
+
+    <button type="submit" id="btn">Join Game!</button>
+</form>
+
+</body>
+
+</html>
