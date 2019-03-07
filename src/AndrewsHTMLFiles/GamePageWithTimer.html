@@ -13,8 +13,8 @@
         #input-container {
             display: -ms-flexbox; /* IE10 */
             display: flex;
-            width: 100%;
-            margin-bottom: 15px;
+            width: 500px;
+            margin: auto;
         }
 
 
@@ -35,8 +35,9 @@
             padding: 15px 20px;
             border: none;
             cursor: pointer;
-            width: 100%;
+            width: 500px;
             opacity: 0.9;
+            margin: center;
         }
 
         #btn:hover {
@@ -119,14 +120,11 @@
     <div id="timerBar">30</div>
 </div>
 
+<div id="input-container">
+    <input id="input" type="text" placeholder="Answer" name="answer">
+</div>
 
-<form action="/action_page.php" style="max-width:500px;margin:auto">
-    <div id="input-container">
-        <input id="input" type="text" placeholder="Answer" name="answer">
-    </div>
-
-    <button type="submit" id="btn">Submit</button>
-</form>
+<div align="center"><button type="submit" id="btn" onclick="correct()">Submit</button></div>
 
 <div id = "playerCount">Players Remaining: 34</div>
 
@@ -153,6 +151,21 @@
             }
         }
     }
+
+    function correct() {
+        var elem2 = document.getElementById("question")
+        var elem3 = document.getElementById("input").value
+        if (elem3 == "partly") {
+            elem2.innerHTML = "Correct"
+            elem2.style.border = "10px solid #0C6E24"
+            document.getElementById("timer").remove()
+        } else {
+            elem2.innerHTML = "Incorrect. Game Over."
+            elem2.style.border = "10px solid #A60814";
+            document.getElementById("timer").remove()
+        }
+    }
+
 </script>
 
 
